@@ -9,10 +9,10 @@ import TeamMembers from './components/teams/TeamMembers.vue';
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', redirect: '/teams' },
-    { path: '/teams', component: TeamsList },
+    { path: '/teams', component: TeamsList, alias: '/' },
     { path: '/users', component: UsersList },
     { path: '/teams/:teamId', component: TeamMembers, props: true },
+    { path: '/:notFound(.*)', redirect: '/teams' },
   ],
   linkActiveClass: 'active',
 });
